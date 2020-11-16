@@ -37,6 +37,8 @@ jobs:
       if: ${{env.debugEnv}} == 'true'
       run: echo "Test if Condition Echo"      
           
+    - name: Echo secret
+      run: echo "env.debgEnv  ${{env.debgEnv}}"      
 
     - name: Restore NuGet packages
       run: |
