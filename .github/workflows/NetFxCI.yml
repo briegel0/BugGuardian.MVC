@@ -30,8 +30,8 @@ jobs:
       uses: NuGet/setup-nuget@v1.0.2
     
     - name: Test if Condition
-      if: ${{ secrets.ACTIONS_RUNNER_DEBUG  }}
-        run: echo "Test if Condition"      
+      if: ${{ secrets.ACTIONS_RUNNER_DEBUG == 'true' }}
+      run: echo "Test if Condition"      
 
     - name: Restore NuGet packages
       run: |
