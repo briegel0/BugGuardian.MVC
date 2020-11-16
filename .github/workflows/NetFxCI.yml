@@ -32,10 +32,9 @@ jobs:
       uses: NuGet/setup-nuget@v1.0.2
     
     - name: Test if Condition
-      run: |
-        if: [secrets.ACTIONS_RUNNER_DEBUG  == 'true']; then
-          echo "Test if Condition"      
-        fi  
+      if: secrets.ACTIONS_RUNNER_DEBUG  == 'true'
+      run: echo "Test if Condition"      
+          
 
     - name: Restore NuGet packages
       run: |
