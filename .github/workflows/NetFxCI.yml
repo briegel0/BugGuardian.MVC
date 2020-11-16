@@ -31,7 +31,8 @@ jobs:
     
     - name: Restore NuGet packages
       run: |
-         echo "Restore NuGet packages"
+         if: ${{ secrets.ACTIONS_RUNNER_DEBUG  }}
+            echo "Restore NuGet packages Debug true"
          nuget restore BugGuardian.MVC.sln
     
     - name: Build the Solution
