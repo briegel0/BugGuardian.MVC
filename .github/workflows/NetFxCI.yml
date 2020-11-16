@@ -31,8 +31,8 @@ jobs:
     
     - name: Restore NuGet packages
       run: |
-      echo "Restore NuGet packages"
-      nuget restore BugGuardian.MVC.sln
+         echo "Restore NuGet packages"
+         nuget restore BugGuardian.MVC.sln
     
     - name: Build the Solution
       run: msbuild BugGuardian.MVC.sln /p:Configuration=Release
