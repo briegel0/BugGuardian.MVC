@@ -16,6 +16,8 @@ on:
 jobs:
   # This workflow contains a single job called "build"
   build:
+    env:
+      debugEnv: ${{secrets.ACTIONS_RUNNER_DEBUG}}  
     # The type of runner that the job will run on
     runs-on: windows-latest
 
@@ -32,7 +34,7 @@ jobs:
       uses: NuGet/setup-nuget@v1.0.2
     
     - name: Test if Condition
-      if: secrets.ACTIONS_RUNNER_DEBUG  == 'true'
+      if: ${{env.debugEnv}} == 'true'
       run: echo "Test if Condition"      
           
 
