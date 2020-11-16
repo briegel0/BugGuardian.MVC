@@ -29,11 +29,14 @@ jobs:
     - name: Setup NuGet
       uses: NuGet/setup-nuget@v1.0.2
     
+    - name: Test if Condition
+      if: ${{ secrets.ACTIONS_RUNNER_DEBUG  }}
+        run: echo "Test if Condition"      
+
     - name: Restore NuGet packages
       run: |
-         if: ${{ secrets.ACTIONS_RUNNER_DEBUG  }}
-            echo "Restore NuGet packages Debug true"
-         nuget restore BugGuardian.MVC.sln
+        echo "Restore NuGet packages Debug true"
+        nuget restore BugGuardian.MVC.sln
     
     - name: Build the Solution
       run: msbuild BugGuardian.MVC.sln /p:Configuration=Release
